@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PokemonApi</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="stats">Stats</string>
+    <string name="hp">Hp</string>
+    <string name="attack">Attack</string>
+    <string name="defense">Defense</string>
+    <string name="special_defense">Special defense</string>
+    <string name="speed">Speed</string>
+    <string name="special_attack">Special attack</string>
+
+</resources>
