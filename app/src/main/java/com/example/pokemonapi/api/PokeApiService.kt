@@ -47,5 +47,13 @@ interface PokeApiService {
                 .build()
                 .create(PokeApiService::class.java)
         }
+
+        fun getImageUrl (pokeId: String): String{
+            return "${imageUrl}${pokeId}.png"
+        }
+
+        fun getThumbImageUrl (pokeId: String): String{
+            return "${imageUrlThumb}${pokeId}.png"
+        }
     }
 }

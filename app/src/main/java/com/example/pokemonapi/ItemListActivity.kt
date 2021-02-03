@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.example.pokemonapi.ItemDetailFragment.Companion.ARG_ITEM_ID
+import com.example.pokemonapi.ItemDetailFragment.Companion.ARG_TWO_PANE
 import com.example.pokemonapi.data.Pokemon
 import com.example.pokemonapi.ui.PokemonAdapter
 import com.example.pokemonapi.ui.PokemonViewModel
@@ -54,11 +55,6 @@ class ItemListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.title = title
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
         if (findViewById<NestedScrollView>(R.id.item_detail_container) != null) {
             twoPane = true
         }
@@ -89,8 +85,8 @@ class ItemListActivity : AppCompatActivity() {
             Log.d("ListActivity" , "Tablet device")
             val fragment = ItemDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_ITEM_ID,
-                            pokemon.getId())
+                    putString(ARG_ITEM_ID, pokemon.getId())
+                    putBoolean(ARG_TWO_PANE, twoPane)
                 }
             }
             supportFragmentManager.beginTransaction()
@@ -100,6 +96,7 @@ class ItemListActivity : AppCompatActivity() {
         }else{
             val intent = Intent(this, ItemDetailActivity::class.java).apply {
                 putExtra(ARG_ITEM_ID, pokemon.getId())
+                putExtra(ARG_TWO_PANE, twoPane)
             }
             startActivity(intent)
         }
